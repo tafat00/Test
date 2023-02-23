@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "be490c35-be3b-40e5-b443-57860bebae66",
+		"name": "learn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "httpBin",
+			"item": [
+				{
+					"name": "Get_Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c77ba846-9153-4458-8d8a-e0d56b994af2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "cf2bfbf6-9b0e-402a-b92b-c2056702421c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/get?Name=Amine&Lastname=MELBOUCI",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Amine"
+								},
+								{
+									"key": "Lastname",
+									"value": "MELBOUCI"
+								},
+								{
+									"key": "",
+									"value": null,
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_req",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5d51e2bf-3307-4dc5-9a93-335efb3b3241",
+								"exec": [
+									"let response = pm.response.json();",
+									"pm.globals.set(\"uuid\", response.uuid); // on pointe sur l'objet de la reponse en l'occurence c'est uuid ",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "d1230122-8287-49cb-9501-f9f6d7404d6a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://httpbin.org/uuid"
+					},
+					"response": []
+				},
+				{
+					"name": "Post_Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6447893f-d6b6-4a05-ac67-d4cf4172bf93",
+								"exec": [
+									"",
+									"// tester le statut de la requete ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"// ",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3c8f3c5a-1798-410a-9f33-c66a3ab4f337",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\" : \"Amine\" ,\n    \"email\":\"toto@example.com\",\n    \"id\":\"{{uuid}}\"\n    \n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://httpbin.org/post"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "1291d2eb-0efb-4563-be5f-087f4573a934"
+		}
+	]
+}
